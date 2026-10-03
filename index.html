@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rostrum: a stream mix console for Linux</title>
-  <meta name="description" content="Rostrum splits your game, voice chat, mic, music, alerts and desktop audio into buses, each sent to your headphones, your stream, or both. Free and open source, for Linux with PipeWire.">
+  <meta name="description" content="Rostrum splits your game, voice chat, mic, music, alerts and desktop audio into buses, each sent to your headphones, your stream, or both, with optional mic noise removal. Free and open source, for Linux with PipeWire.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#14151c" media="(prefers-color-scheme: dark)">
@@ -67,7 +67,7 @@
           <button class="zoom" type="button" popovertarget="view-mixer">
             <span class="visually-hidden">Enlarge screenshot:</span>
             <img src="images/mixer.png" width="1280" height="720"
-                 alt="The Rostrum mixer: Headphones and Stream masters at the top, then Mic, Game, Voice, Music, Alerts and Desktop buses, each with a fader, mute, solo, a destination and the apps playing on it.">
+                 alt="The Rostrum mixer: Headphones and Stream masters at the top, then Mic, Game, Voice, Music, Alerts and Desktop buses, each with a fader, mute, solo, a destination and the apps playing on it. The Mic strip has FX for the mic filters.">
           </button>
         </figure>
       </div>
@@ -120,12 +120,20 @@
             <p>The mic has its own bus with optional sidetone. If it is unplugged, the stream mic stays silent until it comes back. No other mic goes live unless you allow it.</p>
           </li>
           <li>
+            <h3>A cleaner mic, everywhere</h3>
+            <p>Optional filters remove fans, keyboards and room noise (RNNoise), cut rumble and even out your level. The stream and every app that records your mic, Discord included, hear the clean voice. They run inside PipeWire, so they keep working if Rostrum quits.</p>
+          </li>
+          <li>
+            <h3>Hear what your viewers hear</h3>
+            <p>Check Mic records five seconds of your stream mic, gain and filters included, plays it back in your headphones only, and tells you if the level is good, too quiet or too loud.</p>
+          </li>
+          <li>
             <h3>Apps find their bus</h3>
             <p>Discord goes to Voice, Spotify to Music, Steam and Proton games to Game, Streamer.bot to Alerts. Every placement shows why it was made.</p>
           </li>
           <li>
             <h3>Apps remember their bus</h3>
-            <p>Drag an app onto a bus once and it lands there every time, even before Rostrum starts at your next login.</p>
+            <p>Drag an app onto a bus once and it lands there every time, even before Rostrum starts at your next login. If Easy Effects pulls an app away as it starts, Rostrum moves it back.</p>
           </li>
           <li>
             <h3>Per-app volume and mute</h3>
@@ -203,6 +211,14 @@
             </button>
             <figcaption>The OBS page shows what OBS really records, read from the PipeWire graph.</figcaption>
           </figure>
+          <figure class="shot">
+            <button class="zoom" type="button" popovertarget="view-micfilters">
+              <span class="visually-hidden">Enlarge screenshot:</span>
+              <img src="images/micfilters.png" width="1280" height="720"
+                   alt="The Mic Filters page: a switch to clean up the mic, a preset, which apps get the filtered mic, then Check Your Mic and the rumble filter.">
+            </button>
+            <figcaption>Mic Filters cleans up your voice, and Check Mic lets you hear it as your viewers do.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -214,7 +230,8 @@
         <p>
           There are no packages or AppImage builds yet, so Rostrum installs from source into your
           home folder. You need PipeWire 1.0 or newer, WirePlumber 0.5 or newer, Qt 6.5+ and KDE
-          Frameworks 6.8+. PulseAudio is not used or required.
+          Frameworks 6.8+. PulseAudio is not used or required. Mic filters need PipeWire 1.4 or
+          newer; everything else works without them.
         </p>
         <ol class="steps">
           <li>Install the build dependencies for your distribution, listed in the <a href="https://github.com/rostrum-audio/rostrum#%EF%B8%8F-installation">README</a>.</li>
@@ -234,8 +251,9 @@ cmake --install build --prefix ~/.local</code></pre>
       <div class="wrap">
         <h2 id="privacy-title">Private by default</h2>
         <p class="section-intro">
-          Rostrum has no telemetry and no accounts. It makes two kinds of network request, and only
-          if you allow them.
+          Rostrum has no telemetry and no accounts, and your audio never leaves your computer: mic
+          filters and the mic check run locally and save no audio. It makes two kinds of network
+          request, and only if you allow them.
         </p>
         <ul class="privacy-list">
           <li>
@@ -284,6 +302,13 @@ cmake --install build --prefix ~/.local</code></pre>
       <button type="button" popovertarget="view-obs" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
         <img src="images/obs.png" width="1280" height="720" alt="">
+        <span class="lightbox-close" aria-hidden="true">✕</span>
+      </button>
+    </div>
+    <div class="lightbox" id="view-micfilters" popover>
+      <button type="button" popovertarget="view-micfilters" popovertargetaction="hide">
+        <span class="visually-hidden">Close the enlarged screenshot</span>
+        <img src="images/micfilters.png" width="1280" height="720" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
