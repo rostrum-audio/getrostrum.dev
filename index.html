@@ -64,8 +64,11 @@
         <p class="hero-note">Free and open source (Apache-2.0). Version 0.1.0, for Linux with PipeWire.</p>
 
         <figure class="shot hero-shot">
-          <img src="images/mixer.png" width="1280" height="720"
-               alt="The Rostrum mixer: Headphones and Stream masters at the top, then Mic, Game, Voice, Music, Alerts and Desktop buses, each with a fader, mute, solo, a destination and the apps playing on it.">
+          <button class="zoom" type="button" popovertarget="view-mixer">
+            <span class="visually-hidden">Enlarge screenshot:</span>
+            <img src="images/mixer.png" width="1280" height="720"
+                 alt="The Rostrum mixer: Headphones and Stream masters at the top, then Mic, Game, Voice, Music, Alerts and Desktop buses, each with a fader, mute, solo, a destination and the apps playing on it.">
+          </button>
         </figure>
       </div>
     </section>
@@ -177,18 +180,27 @@
         <h2 id="screenshots-title">A closer look</h2>
         <div class="gallery">
           <figure class="shot">
-            <img src="images/wizard.png" width="1280" height="720"
-                 alt="First-time setup: a list of steps on the left, and a diagram of apps going to buses and buses going to your headphones and to OBS.">
+            <button class="zoom" type="button" popovertarget="view-wizard">
+              <span class="visually-hidden">Enlarge screenshot:</span>
+              <img src="images/wizard.png" width="1280" height="720"
+                   alt="First-time setup: a list of steps on the left, and a diagram of apps going to buses and buses going to your headphones and to OBS.">
+            </button>
             <figcaption>First-time setup walks through headphones, mic, apps, startup, privacy and OBS.</figcaption>
           </figure>
           <figure class="shot">
-            <img src="images/apps.png" width="1280" height="720"
-                 alt="The Apps page: the apps playing now, the bus each is on and why, and the saved rules.">
+            <button class="zoom" type="button" popovertarget="view-apps">
+              <span class="visually-hidden">Enlarge screenshot:</span>
+              <img src="images/apps.png" width="1280" height="720"
+                   alt="The Apps page: the apps playing now, the bus each is on and why, and the saved rules.">
+            </button>
             <figcaption>The Apps page shows what is playing, where it went and why.</figcaption>
           </figure>
           <figure class="shot">
-            <img src="images/obs.png" width="1280" height="720"
-                 alt="The OBS page: OBS is set up and records Rostrum Mic and Rostrum Stream Mix, followed by a list of what OBS records right now.">
+            <button class="zoom" type="button" popovertarget="view-obs">
+              <span class="visually-hidden">Enlarge screenshot:</span>
+              <img src="images/obs.png" width="1280" height="720"
+                   alt="The OBS page: OBS is set up and records Rostrum Mic and Rostrum Stream Mix, followed by a list of what OBS records right now.">
+            </button>
             <figcaption>The OBS page shows what OBS really records, read from the PipeWire graph.</figcaption>
           </figure>
         </div>
@@ -246,6 +258,35 @@ cmake --install build --prefix ~/.local</code></pre>
         <p><a href="privacy.html">More about privacy, including this website</a></p>
       </div>
     </section>
+
+    <div class="lightbox" id="view-mixer" popover>
+      <button type="button" popovertarget="view-mixer" popovertargetaction="hide">
+        <span class="visually-hidden">Close the enlarged screenshot</span>
+        <img src="images/mixer.png" width="1280" height="720" alt="">
+        <span class="lightbox-close" aria-hidden="true">✕</span>
+      </button>
+    </div>
+    <div class="lightbox" id="view-wizard" popover>
+      <button type="button" popovertarget="view-wizard" popovertargetaction="hide">
+        <span class="visually-hidden">Close the enlarged screenshot</span>
+        <img src="images/wizard.png" width="1280" height="720" alt="">
+        <span class="lightbox-close" aria-hidden="true">✕</span>
+      </button>
+    </div>
+    <div class="lightbox" id="view-apps" popover>
+      <button type="button" popovertarget="view-apps" popovertargetaction="hide">
+        <span class="visually-hidden">Close the enlarged screenshot</span>
+        <img src="images/apps.png" width="1280" height="720" alt="">
+        <span class="lightbox-close" aria-hidden="true">✕</span>
+      </button>
+    </div>
+    <div class="lightbox" id="view-obs" popover>
+      <button type="button" popovertarget="view-obs" popovertargetaction="hide">
+        <span class="visually-hidden">Close the enlarged screenshot</span>
+        <img src="images/obs.png" width="1280" height="720" alt="">
+        <span class="lightbox-close" aria-hidden="true">✕</span>
+      </button>
+    </div>
   </main>
 
   <footer class="site-footer">
