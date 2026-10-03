@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy: Rostrum</title>
+  <meta name="description" content="What Rostrum sends over the network, when, and how to turn it off. And what this website collects: nothing.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14151c" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://getrostrum.dev/privacy.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="Rostrum home">
+        <img src="favicon.svg" alt="" width="32" height="32">
+        <span>Rostrum</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#install">Install</a></li>
+          <li><a href="privacy.html" aria-current="page">Privacy</a></li>
+          <li><a href="https://github.com/rostrum-audio/rostrum">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <div class="wrap narrow">
+      <h1>Privacy</h1>
+      <p>
+        Rostrum has no telemetry, no accounts and no usage tracking. It makes two kinds of network
+        request, and only if you allow them: it sends a crash report after a crash, and it checks
+        once a day for a new version. Both are chosen during first-time setup and can be changed
+        later in Settings → Privacy and Settings → Updates. Nothing else in Rostrum touches the
+        network, apart from OBS on your own computer.
+      </p>
+      <p>
+        This page is a summary. The full details, including the exact fields a crash report may
+        contain, are in
+        <a href="https://github.com/rostrum-audio/rostrum/blob/main/docs/privacy.md">docs/privacy.md</a>
+        in the source repository.
+      </p>
+
+      <h2>Update checks</h2>
+      <ul>
+        <li>On by default, once a day: the first check runs 20 seconds after Rostrum starts, then at most every 24 hours while it runs.</li>
+        <li>It is a plain request for <code>https://getrostrum.dev/releases/latest.json</code>, which redirects to the file attached to the latest release on GitHub. So the check talks to getrostrum.dev and GitHub.</li>
+        <li>The request carries Rostrum's version in its User-Agent and nothing else about you: no cookies, no ID. Like any request, the servers see the IP address it comes from.</li>
+        <li>What happens next depends on how Rostrum was installed. A build from source shows a banner that links to what changed. Package installs are left to the package manager, and Flatpak installs do not check at all.</li>
+        <li>Turn it off in Settings → Updates.</li>
+      </ul>
+
+      <h2>Crash reports</h2>
+      <ul>
+        <li>Only official builds have crash reporting. A plain build from source has none, and the settings are hidden.</li>
+        <li>The default is to ask: the next time Rostrum starts after a crash, it offers to send the report, and <strong>Show the Report</strong> shows exactly what would be sent. You can also choose to always send, or never.</li>
+        <li>Reports go to <a href="https://sentry.io">Sentry</a> (US region). Rostrum copies a fixed list of fields out of the crash: where it crashed, the signal, and the versions of Rostrum, the system, Qt, KDE Frameworks, PipeWire and WirePlumber. Everything else is dropped.</li>
+        <li>No names, file paths, device names, host name or IDs. No memory contents are captured. Rostrum asks Sentry not to store your IP address or look up a location from it.</li>
+        <li>There is no ping on launch, no session tracking and no breadcrumbs.</li>
+      </ul>
+
+      <h2>OBS</h2>
+      <ul>
+        <li>Rostrum talks to OBS through obs-websocket on <code>127.0.0.1</code> only. That traffic never leaves your computer.</li>
+        <li>Set Up OBS and Undo change OBS only when you press them.</li>
+        <li>While OBS runs, Rostrum can follow it to show LIVE and REC badges, go-live warnings and scene mapping. It only reads, and stores nothing apart from the scene mapping you choose. You can turn this off in Settings → OBS.</li>
+      </ul>
+
+      <h2>No network listener</h2>
+      <p>
+        Rostrum opens no network ports. The <code>rostrum</code> command and the D-Bus interface on
+        your session bus are the only ways to control it from outside the window.
+      </p>
+
+      <h2>This website</h2>
+      <p>
+        getrostrum.dev is a set of static files hosted on Cloudflare Pages. It sets no cookies, runs
+        no JavaScript, and has no analytics or trackers. Fonts, styles and images all come from this
+        site; nothing is loaded from other servers. Cloudflare handles the requests to serve the
+        pages.
+      </p>
+
+      <h2>Questions</h2>
+      <p>
+        Write to <a href="mailto:hello@getrostrum.dev">hello@getrostrum.dev</a>. For security
+        problems, write to <a href="mailto:security@getrostrum.dev">security@getrostrum.dev</a>.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Rostrum is free software by <a href="https://github.com/rostrum-audio">Rostrum Audio</a>, licensed under <a href="https://github.com/rostrum-audio/rostrum/blob/main/LICENSE">Apache-2.0</a>.</p>
+      <nav aria-label="Project links">
+        <ul>
+          <li><a href="https://github.com/rostrum-audio/rostrum">GitHub</a></li>
+          <li><a href="https://github.com/rostrum-audio/rostrum/discussions">Discussions</a></li>
+          <li><a href="https://github.com/rostrum-audio/rostrum/wiki">Wiki</a></li>
+          <li><a href="https://github.com/rostrum-audio/rostrum/issues">Issues</a></li>
+          <li><a href="mailto:hello@getrostrum.dev">hello@getrostrum.dev</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

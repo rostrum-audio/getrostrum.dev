@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rostrum: a stream mix console for Linux</title>
+  <meta name="description" content="Rostrum splits your game, voice chat, mic, music, alerts and desktop audio into buses, each sent to your headphones, your stream, or both. Free and open source, for Linux with PipeWire.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14151c" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://getrostrum.dev/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rostrum">
+  <meta property="og:title" content="Rostrum: a stream mix console for Linux">
+  <meta property="og:description" content="A stream mix console for Linux, not a patchbay. Buses, two mixes, scenes and OBS in one click, on PipeWire.">
+  <meta property="og:url" content="https://getrostrum.dev/">
+  <meta property="og:image" content="https://getrostrum.dev/images/social-preview.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Rostrum: a stream mix console for Linux">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="Rostrum home">
+        <img src="favicon.svg" alt="" width="32" height="32">
+        <span>Rostrum</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#install">Install</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="https://github.com/rostrum-audio/rostrum">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <h1 id="hero-title">
+          <picture>
+            <source srcset="images/lockup-on-dark.svg" media="(prefers-color-scheme: dark)">
+            <img src="images/lockup.svg" alt="Rostrum" width="510" height="120">
+          </picture>
+        </h1>
+        <p class="tagline">A stream mix console for Linux, not a patchbay.</p>
+        <p class="lede">
+          Split your game, voice chat, mic, music, alerts and desktop audio into named buses. Send
+          each one to your headphones, to the stream, or to both, and let OBS record one clean mix.
+        </p>
+        <div class="actions">
+          <a class="button button-primary" href="https://github.com/rostrum-audio/rostrum">Get it on GitHub</a>
+          <a class="button button-secondary" href="https://github.com/rostrum-audio/rostrum#%EF%B8%8F-installation">Install from source</a>
+        </div>
+        <p class="hero-note">Free and open source (Apache-2.0). Version 0.1.0, for Linux with PipeWire.</p>
+
+        <figure class="shot hero-shot">
+          <img src="images/mixer.png" width="1280" height="720"
+               alt="The Rostrum mixer: Headphones and Stream masters at the top, then Mic, Game, Voice, Music, Alerts and Desktop buses, each with a fader, mute, solo, a destination and the apps playing on it.">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="meters" aria-hidden="true"><span></span><span></span><span></span></div>
+        <h2 id="about-title">A mixing desk, not a graph</h2>
+        <div class="narrow">
+          <p>
+            Tools like qpwgraph and Helvum show every port and every link. Rostrum hides the graph
+            and gives you a mixing desk instead: faders, meters, mute and solo, and scenes you can
+            switch live.
+          </p>
+          <p>
+            It targets any current Linux desktop on PipeWire and WirePlumber. Plasma, GNOME and other
+            desktops are in scope; X11 is a fallback. The virtual devices live in PipeWire, not in
+            the app, so audio keeps flowing if Rostrum quits or crashes.
+          </p>
+        </div>
+        <div class="compare">
+          <div>
+            <h3>Buses, not wires</h3>
+            <p>Each source gets a named bus with a fader and a meter. No ports to connect by hand.</p>
+          </div>
+          <div>
+            <h3>Two mixes from one console</h3>
+            <p>What you hear and what your audience hears, set per bus: Headphones, Stream or Both.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <h2 id="features-title">Features</h2>
+        <p class="section-intro">Everything below is in version 0.1.0.</p>
+        <ul class="features">
+          <li>
+            <h3>Six buses to start</h3>
+            <p>Mic, Game, Voice, Music, Alerts and Desktop, each with a fader and mute. Every playback bus gets solo. Add more, up to twelve.</p>
+          </li>
+          <li>
+            <h3>Headphones and Stream mixes</h3>
+            <p>Send each bus to your headphones, the stream, or both. Music can play for viewers without playing in your ears.</p>
+          </li>
+          <li>
+            <h3>Your mic, protected</h3>
+            <p>The mic has its own bus with optional sidetone. If it is unplugged, the stream mic stays silent until it comes back. No other mic goes live unless you allow it.</p>
+          </li>
+          <li>
+            <h3>Apps find their bus</h3>
+            <p>Discord goes to Voice, Spotify to Music, Steam and Proton games to Game, Streamer.bot to Alerts. Every placement shows why it was made.</p>
+          </li>
+          <li>
+            <h3>Apps remember their bus</h3>
+            <p>Drag an app onto a bus once and it lands there every time, even before Rostrum starts at your next login.</p>
+          </li>
+          <li>
+            <h3>Scenes</h3>
+            <p>Recall every level, mute and destination at once. Changes save to the live scene by themselves. Start from presets like Gaming, Just Chatting or Podcast.</p>
+          </li>
+          <li>
+            <h3>OBS in one click</h3>
+            <p>OBS captures one clean Rostrum Stream Mix and one Rostrum Mic. Rostrum shows every change first, mutes sources that would double your audio, and can undo it all.</p>
+          </li>
+          <li>
+            <h3>Knows when you are live</h3>
+            <p>LIVE and REC badges follow OBS. A warning appears if you go live with your mic muted or nothing reaching the stream. OBS scenes can switch Rostrum scenes.</p>
+          </li>
+          <li>
+            <h3>Global hotkeys</h3>
+            <p>Mute the mic or the stream and switch scenes from anywhere. Bind push to talk, push to mute and a panic mute for mic and stream at once.</p>
+          </li>
+          <li>
+            <h3>Command line and D-Bus</h3>
+            <p>Drive Rostrum from Stream Deck buttons, KDE Connect or scripts with the <code>rostrum</code> command or the session bus. There is no network listener.</p>
+          </li>
+          <li>
+            <h3>Auto-ducking and fades</h3>
+            <p>Optionally let your voice turn Music down while you speak, and fade between scenes instead of switching at once.</p>
+          </li>
+          <li>
+            <h3>Compact view</h3>
+            <p>A small mixer with your mic, scene, masters and a slim fader per bus that can stay on top of a game or OBS.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="screenshots" aria-labelledby="screenshots-title">
+      <div class="wrap">
+        <h2 id="screenshots-title">A closer look</h2>
+        <div class="gallery">
+          <figure class="shot">
+            <img src="images/wizard.png" width="1280" height="720" loading="lazy"
+                 alt="First-time setup: a list of steps on the left, and a diagram of apps going to buses and buses going to your headphones and to OBS.">
+            <figcaption>First-time setup walks through headphones, mic, apps, startup, privacy and OBS.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="images/apps.png" width="1280" height="720" loading="lazy"
+                 alt="The Apps page: the apps playing now, the bus each is on and why, and the saved rules.">
+            <figcaption>The Apps page shows what is playing, where it went and why.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="images/obs.png" width="1280" height="720" loading="lazy"
+                 alt="The OBS page: OBS is set up and records Rostrum Mic and Rostrum Stream Mix, followed by a list of what OBS records right now.">
+            <figcaption>The OBS page shows what OBS really records, read from the PipeWire graph.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="install" aria-labelledby="install-title">
+      <div class="wrap">
+        <h2 id="install-title">Install</h2>
+        <div class="narrow">
+        <p>
+          There are no packages or AppImage builds yet, so Rostrum installs from source into your
+          home folder. You need PipeWire 1.0 or newer, WirePlumber 0.5 or newer, Qt 6.5+ and KDE
+          Frameworks 6.8+. PulseAudio is not used or required.
+        </p>
+        <ol class="steps">
+          <li>Install the build dependencies for your distribution, listed in the <a href="https://github.com/rostrum-audio/rostrum#%EF%B8%8F-installation">README</a>.</li>
+          <li>Build and install:</li>
+        </ol>
+<pre><code>git clone https://github.com/rostrum-audio/rostrum.git
+cd rostrum
+cmake -S . -B build -G Ninja
+cmake --build build
+cmake --install build --prefix ~/.local</code></pre>
+        <p>Then start Rostrum from your app menu and follow first-time setup.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <h2 id="privacy-title">Private by default</h2>
+        <p class="section-intro">
+          Rostrum has no telemetry and no accounts. It makes two kinds of network request, and only
+          if you allow them.
+        </p>
+        <ul class="privacy-list">
+          <li>
+            <strong>Update check, once a day</strong>
+            <span>A plain request for getrostrum.dev/releases/latest.json, which leads to the latest GitHub release. It carries only Rostrum's version, no cookies and no ID. You can turn it off.</span>
+          </li>
+          <li>
+            <strong>Crash reports are your call</strong>
+            <span>Official builds only. By default Rostrum asks after a crash, and you can read the exact report first. No names, paths, device names or IDs. A plain build from source has no crash reporting at all.</span>
+          </li>
+          <li>
+            <strong>OBS stays on your computer</strong>
+            <span>Rostrum talks to OBS on 127.0.0.1 only. While it follows OBS, it only reads.</span>
+          </li>
+          <li>
+            <strong>No network listener</strong>
+            <span>Remote control goes through the command line or the D-Bus session bus, never a port.</span>
+          </li>
+        </ul>
+        <p><a href="privacy.html">More about privacy, including this website</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Rostrum is free software by <a href="https://github.com/rostrum-audio">Rostrum Audio</a>, licensed under <a href="https://github.com/rostrum-audio/rostrum/blob/main/LICENSE">Apache-2.0</a>.</p>
+      <nav aria-label="Project links">
+        <ul>
+          <li><a href="https://github.com/rostrum-audio/rostrum">GitHub</a></li>
+          <li><a href="https://github.com/rostrum-audio/rostrum/discussions">Discussions</a></li>
+          <li><a href="https://github.com/rostrum-audio/rostrum/wiki">Wiki</a></li>
+          <li><a href="https://github.com/rostrum-audio/rostrum/issues">Issues</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="mailto:hello@getrostrum.dev">hello@getrostrum.dev</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
