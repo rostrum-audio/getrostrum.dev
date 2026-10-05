@@ -550,6 +550,8 @@ pre code {
 }
 
 .privacy-list li {
+  min-width: 0;
+  overflow-wrap: anywhere;
   padding-left: 1.1rem;
   border-left: 3px solid var(--teal);
 }

@@ -55,13 +55,14 @@
         <p class="tagline">A stream mix console for Linux, not a patchbay.</p>
         <p class="lede">
           Split your game, voice chat, mic, music, alerts and desktop audio into named buses. Send
-          each one to your headphones, to the stream, or to both, and let OBS record one clean mix.
+          each one to your headphones, to the stream, or to both. OBS captures Rostrum Stream Mix
+          and Rostrum Mic separately.
         </p>
         <div class="actions">
-          <a class="button button-primary" href="https://github.com/rostrum-audio/rostrum">Get it on GitHub</a>
-          <a class="button button-secondary" href="https://github.com/rostrum-audio/rostrum#%EF%B8%8F-installation">Install from source</a>
+          <a class="button button-primary" href="https://github.com/rostrum-audio/rostrum/releases/download/v0.1.0/Rostrum-0.1.0-x86_64.AppImage">Download 0.1.0 AppImage</a>
+          <a class="button button-secondary" href="https://github.com/rostrum-audio/rostrum/releases/tag/v0.1.0">Release notes</a>
         </div>
-        <p class="hero-note">Free and open source (Apache-2.0). Version 0.1.0, for Linux with PipeWire.</p>
+        <p class="hero-note">Free and open source (Apache-2.0). 0.1.0 is available for x86_64. Validated on Ubuntu 26.04; glibc 2.43+ required. <a href="#install">Requirements and launch</a>.</p>
 
         <figure class="shot hero-shot">
           <button class="zoom" type="button" popovertarget="view-mixer">
@@ -84,9 +85,9 @@
             switch live.
           </p>
           <p>
-            It targets any current Linux desktop on PipeWire and WirePlumber. Plasma, GNOME and other
-            desktops are in scope; X11 is a fallback. The virtual devices live in PipeWire, not in
-            the app, so audio keeps flowing if Rostrum quits or crashes.
+            Rostrum uses PipeWire and WirePlumber. Its AppImage was validated on Ubuntu 26.04 x86_64,
+            not every Linux desktop. The virtual devices live in PipeWire, not in the app;
+            applications can fall back to the system output when Rostrum quits or crashes.
           </p>
         </div>
         <div class="compare">
@@ -113,19 +114,19 @@
           </li>
           <li>
             <h3>Headphones and Stream mixes</h3>
-            <p>Send each bus to your headphones, the stream, or both. Music can play for viewers without playing in your ears.</p>
+            <p>Send each bus to your headphones, the stream, or both. Headphones Only removes Stream Mix sends; Stream Only removes headphone sends. Independent OBS captures can bypass these exclusions.</p>
           </li>
           <li>
             <h3>Your mic, protected</h3>
-            <p>The mic has its own bus with optional sidetone. If it is unplugged, the stream mic stays silent until it comes back. No other mic goes live unless you allow it.</p>
+            <p>The mic has its own bus with optional sidetone. If a saved mic disappears, the stream mic stays silent until it returns. No other mic replaces it unless you explicitly enable fallback.</p>
           </li>
           <li>
-            <h3>A cleaner mic, everywhere</h3>
-            <p>Optional filters remove fans, keyboards and room noise (RNNoise), cut rumble and even out your level. The stream and every app that records your mic, Discord included, hear the clean voice. They run inside PipeWire, so they keep working if Rostrum quits.</p>
+            <h3>Local microphone filters</h3>
+            <p>RNNoise reduces background noise, alongside a rumble filter, gate, EQ, compressor and limiter. Choose the stream and eligible recording apps, or only the stream, with per-app choices. Audio tools stay plain by default. Processing runs inside PipeWire.</p>
           </li>
           <li>
-            <h3>Hear what your viewers hear</h3>
-            <p>Check Mic records five seconds of your stream mic, gain and filters included, plays it back in your headphones only, and tells you if the level is good, too quiet or too loud.</p>
+            <h3>Check your stream mic</h3>
+            <p>Check Mic records five seconds of Rostrum Mic, with its gain and filters, and plays it back in your headphones only. It reports the mic level before OBS; it does not verify audience audio.</p>
           </li>
           <li>
             <h3>Apps find their bus</h3>
@@ -133,7 +134,7 @@
           </li>
           <li>
             <h3>Apps remember their bus</h3>
-            <p>Drag an app onto a bus once and it lands there every time, even before Rostrum starts at your next login. If Easy Effects pulls an app away as it starts, Rostrum moves it back.</p>
+            <p>Save an app’s bus with “Always” and it lands there again, including before Rostrum starts at your next login. If Easy Effects pulls an app away as it starts, Rostrum moves it back.</p>
           </li>
           <li>
             <h3>Per-app volume and mute</h3>
@@ -149,7 +150,11 @@
           </li>
           <li>
             <h3>OBS in one click</h3>
-            <p>OBS captures one clean Rostrum Stream Mix and one Rostrum Mic. Rostrum shows every change first, mutes sources that would double your audio, and can undo it all.</p>
+            <p>OBS captures Rostrum Stream Mix and Rostrum Mic separately. Review the setup preview, including duplicate-capture mutes, and undo applied changes. Additional app or headphone captures can bypass exclusions.</p>
+          </li>
+          <li>
+            <h3>Check stream readiness</h3>
+            <p>Inspect effective controls, devices, channel links and OBS capture observations. Results distinguish Verified, Needs attention, Intentionally excluded/idle and Not verified. No settings are changed and no sound is played or recorded. It cannot guarantee recording or audience audio.</p>
           </li>
           <li>
             <h3>Knows when you are live</h3>
@@ -206,10 +211,10 @@
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-obs">
               <span class="visually-hidden">Enlarge screenshot:</span>
-              <img src="images/obs.png" width="1280" height="720"
-                   alt="The OBS page: OBS is set up and records Rostrum Mic and Rostrum Stream Mix, followed by a list of what OBS records right now.">
+              <img src="images/obs.png" width="1280" height="900"
+                   alt="Stream readiness results showing verified controls and routing, with OBS capture marked Not verified in an isolated demo.">
             </button>
-            <figcaption>The OBS page shows what OBS really records, read from the PipeWire graph.</figcaption>
+            <figcaption>Readiness separates verified controls and routing from OBS capture that has not been verified.</figcaption>
           </figure>
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-micfilters">
@@ -217,7 +222,7 @@
               <img src="images/micfilters.png" width="1280" height="720"
                    alt="The Mic Filters page: a switch to clean up the mic, a preset, which apps get the filtered mic, then Check Your Mic and the rumble filter.">
             </button>
-            <figcaption>Mic Filters cleans up your voice, and Check Mic lets you hear it as your viewers do.</figcaption>
+            <figcaption>Mic Filters processes locally; Check Mic plays back the Rostrum Mic signal before OBS.</figcaption>
           </figure>
         </div>
       </div>
@@ -227,22 +232,55 @@
       <div class="wrap">
         <h2 id="install-title">Install</h2>
         <div class="narrow">
+        <h3>Download the x86_64 AppImage</h3>
         <p>
-          There are no packages or AppImage builds yet, so Rostrum installs from source into your
-          home folder. You need PipeWire 1.0 or newer, WirePlumber 0.5 or newer, Qt 6.5+ and KDE
-          Frameworks 6.8+. PulseAudio is not used or required. Mic filters need PipeWire 1.4 or
-          newer; everything else works without them.
+          <a href="https://github.com/rostrum-audio/rostrum/releases/download/v0.1.0/Rostrum-0.1.0-x86_64.AppImage">Rostrum 0.1.0 AppImage</a> ·
+          <a href="https://github.com/rostrum-audio/rostrum/releases/download/v0.1.0/SHA256SUMS">SHA256SUMS</a> ·
+          <a href="https://github.com/rostrum-audio/rostrum/releases/tag/v0.1.0">Release notes</a>.
+          Save the AppImage and checksum file in the same folder, then run:
         </p>
-        <ol class="steps">
-          <li>Install the build dependencies for your distribution, listed in the <a href="https://github.com/rostrum-audio/rostrum#%EF%B8%8F-installation">README</a>.</li>
-          <li>Build and install:</li>
-        </ol>
-<pre><code>git clone https://github.com/rostrum-audio/rostrum.git
-cd rostrum
-cmake -S . -B build -G Ninja
-cmake --build build
-cmake --install build --prefix ~/.local</code></pre>
-        <p>Then start Rostrum from your app menu and follow first-time setup.</p>
+<pre><code>sha256sum -c SHA256SUMS
+chmod +x Rostrum-0.1.0-x86_64.AppImage
+./Rostrum-0.1.0-x86_64.AppImage
+# If FUSE is unavailable:
+./Rostrum-0.1.0-x86_64.AppImage --appimage-extract-and-run</code></pre>
+        <p>
+          Fully quit an existing Rostrum through its tray/menu Quit first; closing the window can
+          leave it running. Builds share settings and a second launch can activate the old copy.
+          Follow first-time setup through Create Mix.
+        </p>
+        <h3>Tested environment and requirements</h3>
+        <p>
+          The AppImage was validated in clean <strong>Ubuntu 26.04 x86_64, glibc 2.43,
+          PipeWire 1.6.2 and WirePlumber 0.5.13</strong>, without host Qt/KDE/QML or development
+          packages. It requires glibc 2.43 or newer; that binary floor does not establish support
+          for every newer distribution. Older glibc and other architectures are unsupported by
+          this artifact. A working audio session, desktop D-Bus, X11 or Wayland, graphics/font
+          libraries and FUSE for mounted launch are required. See the
+          <a href="https://github.com/rostrum-audio/rostrum/blob/v0.1.0/docs/releasing.md#what-gets-published">host runtime packages</a>.
+        </p>
+        <h3>Connect OBS</h3>
+        <p>
+          Open Rostrum’s OBS page and choose Set Up OBS, review the preview and apply the changes.
+          With OBS running, enable its local obs-websocket server if needed. For manual setup,
+          use Audio Output Capture (or the PipeWire capture plugin) for <strong>Rostrum Stream Mix</strong>
+          (<code>rostrum.stream.monitor</code> with PulseAudio capture), and Mic/Aux or one Audio
+          Input Capture for <strong>Rostrum Mic</strong> (<code>rostrum.mic</code>).
+        </p>
+        <p>
+          Use one capture per output. Disable or mute duplicate desktop, headphone/default-monitor,
+          raw-mic and app captures: they can double audio or bypass Headphones Only exclusions.
+          A single Rostrum bus is not the Stream Mix. Run Check stream readiness, review OBS track
+          assignments and make a short recording; readiness cannot verify audience sound.
+        </p>
+        <h3>Build from source</h3>
+        <p>
+          <a href="https://github.com/rostrum-audio/rostrum#build-from-source">Source-build instructions</a>
+          cover Ubuntu, Fedora and Arch. Source minimums are PipeWire 1.0+, WirePlumber 0.5+,
+          Qt 6.5+ and KDE Frameworks 6.8+; mic filters need PipeWire 1.4+ audio-convert support.
+          These are not the AppImage’s validated compatibility matrix. Source-build CI passes
+          on Fedora and Arch do not validate this AppImage on those systems.
+        </p>
         </div>
       </div>
     </section>
@@ -251,22 +289,22 @@ cmake --install build --prefix ~/.local</code></pre>
       <div class="wrap">
         <h2 id="privacy-title">Private by default</h2>
         <p class="section-intro">
-          Rostrum has no telemetry and no accounts, and your audio never leaves your computer: mic
-          filters and the mic check run locally and save no audio. It makes two kinds of network
-          request, and only if you allow them.
+          Rostrum has no telemetry or accounts and does not upload your audio. Mic filters and the
+          mic check run locally without saving recordings. Optional update checks and AppImage downloads
+          contact the release servers; optional crash reports go to Sentry. OBS communication stays local.
         </p>
         <ul class="privacy-list">
           <li>
-            <strong>Update check, once a day</strong>
-            <span>A plain request for getrostrum.dev/releases/latest.json, which leads to the latest GitHub release. It carries only Rostrum's version, no cookies and no ID. You can turn it off.</span>
+            <strong>Optional checks and downloads</strong>
+            <span>Update checks contact getrostrum.dev and GitHub without cookies or a user ID. AppImages can automatically download and install checksum-verified updates, or wait for you to choose Install. Checks and automatic installation have separate switches in Settings → Updates.</span>
           </li>
           <li>
             <strong>Crash reports are your call</strong>
-            <span>Official builds only. By default Rostrum asks after a crash, and you can read the exact report first. No names, paths, device names or IDs. A plain build from source has no crash reporting at all.</span>
+            <span>Official builds include optional crash reports to Sentry. By default Rostrum asks after a crash; you can inspect the report before sending, or choose Always or Never. No names, paths, device names or user IDs. Ordinary source builds omit crash reporting.</span>
           </li>
           <li>
             <strong>OBS stays on your computer</strong>
-            <span>Rostrum talks to OBS on 127.0.0.1 only. While it follows OBS, it only reads.</span>
+            <span>Rostrum reads OBS status and capture settings over localhost. Set Up OBS and Undo apply only when you choose them. Background following can be disabled in Settings → OBS.</span>
           </li>
           <li>
             <strong>No network listener</strong>
@@ -301,7 +339,7 @@ cmake --install build --prefix ~/.local</code></pre>
     <div class="lightbox" id="view-obs" popover>
       <button type="button" popovertarget="view-obs" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/obs.png" width="1280" height="720" alt="">
+        <img src="images/obs.png" width="1280" height="900" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>

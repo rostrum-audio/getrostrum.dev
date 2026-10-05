@@ -37,11 +37,11 @@
     <div class="wrap narrow">
       <h1>Privacy</h1>
       <p>
-        Rostrum has no telemetry, no accounts and no usage tracking. It makes two kinds of network
-        request, and only if you allow them: it sends a crash report after a crash, and it checks
-        once a day for a new version. Both are chosen during first-time setup and can be changed
-        later in Settings → Privacy and Settings → Updates. Nothing else in Rostrum touches the
-        network, apart from OBS on your own computer.
+        Rostrum has no telemetry, accounts or usage tracking. Optional update checks contact
+        getrostrum.dev and GitHub; AppImage updates can also download a replacement executable.
+        Optional crash reports go to Sentry. These choices are offered during first-time setup
+        and can be changed in Settings → Updates and Settings → Privacy. Communication with OBS
+        is separate and stays on your computer over localhost.
       </p>
       <p>
         This page is a summary. The full details, including the exact fields a crash report may
@@ -52,26 +52,27 @@
 
       <h2>Your audio</h2>
       <ul>
-        <li>Your audio never leaves your computer. Rostrum mixes it inside PipeWire and sends none of it anywhere.</li>
+        <li>Rostrum does not upload your audio. It mixes locally inside PipeWire; OBS or other recording apps handle any recording or streaming you choose.</li>
         <li>Mic filters, noise removal included, also run inside PipeWire on your computer. RNNoise's model is part of the plugin, and no audio, level or transcript is stored or sent.</li>
         <li>Check Mic keeps its 5-second recording in memory only and never writes it to disk. Only your headphones play it back.</li>
       </ul>
 
-      <h2>Update checks</h2>
+      <h2>Update checks and downloads</h2>
       <ul>
         <li>On by default, once a day: the first check runs 20 seconds after Rostrum starts, then at most every 24 hours while it runs.</li>
         <li>It is a plain request for <code>https://getrostrum.dev/releases/latest.json</code>, which redirects to the file attached to the latest release on GitHub. So the check talks to getrostrum.dev and GitHub.</li>
         <li>The request carries Rostrum's version in its User-Agent and nothing else about you: no cookies, no ID. Like any request, the servers see the IP address it comes from.</li>
-        <li>What happens next depends on how Rostrum was installed. A build from source shows a banner that links to what changed. Package installs are left to the package manager, and Flatpak installs do not check at all.</li>
-        <li>Turn it off in Settings → Updates.</li>
+        <li>What happens next depends on how Rostrum was installed. The AppImage can download and replace itself after verifying the release checksum. A build from source shows a banner that links to what changed; rebuild it manually. Package installs are left to the package manager, and Flatpak installs do not check at all.</li>
+        <li>AppImage automatic installation is on by default when updates are enabled. Turn off automatic installation to wait for the Install action; turn off update checks to disable scheduled checks. Downloads come from GitHub and use the same no-cookie policy. Servers see the request’s IP address.</li>
+        <li>Use Settings → Updates to change these separate choices. Check Now also makes a request when you choose it.</li>
       </ul>
 
       <h2>Crash reports</h2>
       <ul>
-        <li>Only official builds have crash reporting. A plain build from source has none, and the settings are hidden.</li>
+        <li>Official builds include crash reporting. Ordinary source builds omit it and hide its settings; a custom build can explicitly enable it.</li>
         <li>The default is to ask: the next time Rostrum starts after a crash, it offers to send the report, and <strong>Show the Report</strong> shows exactly what would be sent. You can also choose to always send, or never.</li>
         <li>Reports go to <a href="https://sentry.io">Sentry</a> (US region). Rostrum copies a fixed list of fields out of the crash: where it crashed, the signal, and the versions of Rostrum, the system, Qt, KDE Frameworks, PipeWire and WirePlumber. Everything else is dropped.</li>
-        <li>No names, file paths, device names, host name or IDs. No memory contents are captured. Rostrum asks Sentry not to store your IP address or look up a location from it.</li>
+        <li>No names, file paths, device names, host name or IDs. No memory contents are captured. The server sees your IP address when receiving a report; Rostrum asks Sentry not to store it or look up a location from it.</li>
         <li>There is no ping on launch, no session tracking and no breadcrumbs.</li>
       </ul>
 
@@ -79,7 +80,7 @@
       <ul>
         <li>Rostrum talks to OBS through obs-websocket on <code>127.0.0.1</code> only. That traffic never leaves your computer.</li>
         <li>Set Up OBS and Undo change OBS only when you press them.</li>
-        <li>While OBS runs, Rostrum can follow it to show LIVE and REC badges, go-live warnings and scene mapping. It only reads, and stores nothing apart from the scene mapping you choose. You can turn this off in Settings → OBS.</li>
+        <li>While OBS runs, Rostrum can follow it to show LIVE and REC badges, go-live warnings and scene mapping. It only reads, and stores nothing apart from the scene mapping you choose. Turn background following off in Settings → OBS to connect only while the OBS page is open. Readiness also reads capture configuration; it does not change settings or test audience audio.</li>
       </ul>
 
       <h2>No network listener</h2>

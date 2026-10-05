@@ -45,7 +45,9 @@ so the first line of `_redirects` sends that path to the newest one:
 ```
 
 Keep that line first and keep the path unchanged: released versions of the app have the URL built
-in. Until the first release is published, GitHub answers the redirect target with 404.
+in. Rostrum 0.1.0 is published; the canonical redirect and final feed returned 200
+and matched its public AppImage hash/size during release validation. Do not change
+this redirect to point at a local fixture or manually edit the public feed.
 
 `/github` and `/download` are short links to the repository and the latest release.
 
@@ -65,7 +67,16 @@ curl -sL https://getrostrum.dev/releases/latest.json
 
 ## Editing
 
-Open `index.html` in a browser; there is nothing to build. Keep everything self-hosted: the
+Open `index.html` in a browser or serve it locally; there is nothing to build.
+For release-content changes, inspect narrow and desktop layouts in light/dark mode.
+Match download links and compatibility claims to the published release, and keep
+source-build minimums separate from the tested AppImage environment. OBS captures
+Stream Mix and Rostrum Mic separately; readiness does not guarantee recording audio.
+New app screenshots must use disposable configuration, private audio/D-Bus and fake
+devices, never the user’s live session. The 0.1.0 OBS illustration is from such a
+private session. Its readiness results are real observations of demo controls and routing;
+OBS capture remains Not verified. It is not a recording pass. Preserve CSP and static assets.
+Keep everything self-hosted: the
 Content-Security-Policy in `_headers` only allows styles and images from this site, so inline
 `style` attributes, scripts and external resources will not load. Feature and privacy wording
 follows the app's `README.md` and `docs/privacy.md`; update them together.
