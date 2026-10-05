@@ -150,7 +150,7 @@
           </li>
           <li>
             <h3>OBS in one click</h3>
-            <p>OBS captures Rostrum Stream Mix and Rostrum Mic separately. Review the setup preview, including duplicate-capture mutes, and undo applied changes. Additional app or headphone captures can bypass exclusions.</p>
+            <p>OBS captures Rostrum Stream Mix on track 1, Rostrum Mic on tracks 1 and 2, and Rostrum VOD Mix on track 2. Review the setup preview, including duplicate-capture mutes, and undo applied changes. Additional app or headphone captures can bypass exclusions.</p>
           </li>
           <li>
             <h3>Check stream readiness</h3>
@@ -262,17 +262,77 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
         <h3>Connect OBS</h3>
         <p>
           Open Rostrum’s OBS page and choose Set Up OBS, review the preview and apply the changes.
-          With OBS running, enable its local obs-websocket server if needed. For manual setup,
-          use Audio Output Capture (or the PipeWire capture plugin) for <strong>Rostrum Stream Mix</strong>
-          (<code>rostrum.stream.monitor</code> with PulseAudio capture), and Mic/Aux or one Audio
-          Input Capture for <strong>Rostrum Mic</strong> (<code>rostrum.mic</code>).
+          Set Up OBS adds a named Audio Output Capture, “Rostrum VOD Mix”, on track 2. It does not
+          use Desktop Audio 2. With OBS running, enable its local obs-websocket server if needed.
+          For manual setup, use Audio Output Capture (or the PipeWire capture plugin) for
+          <strong>Rostrum Stream Mix</strong> (<code>rostrum.stream.monitor</code> with PulseAudio capture)
+          on track 1, <strong>Rostrum VOD Mix</strong> (<code>rostrum.vod.monitor</code>) on track 2,
+          and Mic/Aux or one Audio Input Capture for <strong>Rostrum Mic</strong>
+          (<code>rostrum.mic</code>) on tracks 1 and 2.
         </p>
         <p>
           Use one capture per output. Disable or mute duplicate desktop, headphone/default-monitor,
           raw-mic and app captures: they can double audio or bypass Headphones Only exclusions.
           A single Rostrum bus is not the Stream Mix. Run Check stream readiness, review OBS track
           assignments and make a short recording; readiness cannot verify audience sound.
+          Readiness stays Needs attention until track 2 is selected and Rostrum VOD Mix is captured.
         </p>
+        <section id="vod" aria-labelledby="vod-title">
+          <h4 id="vod-title">Include in Twitch VOD</h4>
+          <p>
+            Track 1 is the live mix. Track 2 is the saved Twitch VOD. Music is off the VOD mix by default.
+            Game, Voice, Alerts, and Desktop are on. The mic has no checkbox; Rostrum Mic is on tracks 1 and 2.
+          </p>
+          <p>
+            A Headphones-only bus is in neither mix. Switching it back to Stream or Both keeps the checkbox as it was.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Source</th>
+                <th scope="col">Track 1 (Stream)</th>
+                <th scope="col">Track 2 (Twitch VOD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rostrum Mic</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td>Rostrum Stream Mix</td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Rostrum VOD Mix</td>
+                <td></td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td>Desktop Audio</td>
+                <td>Off</td>
+                <td>Off</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Check these settings in OBS:
+          </p>
+          <ul>
+            <li><strong>Settings → Stream:</strong> Service is Twitch.</li>
+            <li><strong>Settings → Output:</strong> Twitch VOD Track is 2. This setting appears only when the service is Twitch and Enable Custom Encoder Settings is on. Enhanced Broadcasting ignores this track.</li>
+            <li><strong>Advanced Audio Properties:</strong> Rostrum Mic on tracks 1 and 2, Rostrum Stream Mix on track 1, Rostrum VOD Mix on track 2, and Desktop Audio off both tracks.</li>
+          </ul>
+          <p>
+            Desktop Audio on track 2 puts Music back into the VOD. Leave Desktop Audio disabled or muted.
+            A local OBS recording uses its own track boxes. Track 2 in a recording is the VOD mix only if the recording is set to track 2.
+          </p>
+          <p>
+            To check: run a short Twitch stream with music playing. The live replay has the music; the saved VOD does not.
+          </p>
+        </section>
         <h3>Build from source</h3>
         <p>
           <a href="https://github.com/rostrum-audio/rostrum#build-from-source">Source-build instructions</a>
