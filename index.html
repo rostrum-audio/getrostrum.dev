@@ -276,6 +276,21 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
           A single Rostrum bus is not the Stream Mix. Run Check stream readiness, review OBS track
           assignments and make a short recording; readiness cannot verify audience sound.
           Readiness stays Needs attention until track 2 is selected and Rostrum VOD Mix is captured.
+          Desktop Audio stays off track 2; it would put Music back into the saved VOD.
+        </p>
+        <p>
+          In Settings → General → Startup, Launch at login writes an absolute Exec: the quoted
+          AppImage path or the full home path to <code>~/.local/bin/rostrum</code>, followed by
+          <code>--autostart</code>. It does not depend on Rostrum being on the login session’s PATH.
+          A bus cannot be named VOD; that name is reserved for the VOD master.
+        </p>
+        <h4>OpenDeck</h4>
+        <p>
+          Install and open OpenDeck once, then use Rostrum’s Settings → Integrations → OpenDeck →
+          Install to install the bundled plugin. Restart OpenDeck and drag an action onto a key:
+          Toggle mic, Panic mute, Switch scene, or Toggle bus mute. Python 3 is required.
+          OpenDeck owns the deck; Rostrum does not open it. For manual copy instructions, see the
+          <a href="https://github.com/rostrum-audio/rostrum/tree/codex/twitch-vod-mix#opendeck">OpenDeck setup guide</a>.
         </p>
         <section id="vod" aria-labelledby="vod-title">
           <h4 id="vod-title">Include in Twitch VOD</h4>
