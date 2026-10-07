@@ -67,8 +67,8 @@
         <figure class="shot hero-shot">
           <button class="zoom" type="button" popovertarget="view-mixer">
             <span class="visually-hidden">Enlarge screenshot:</span>
-            <img src="images/mixer.png" width="1280" height="720"
-                 alt="The Rostrum mixer: Headphones and Stream masters at the top, then Mic, Game, Voice, Music, Alerts and Desktop buses, each with a fader, mute, solo, a destination and the apps playing on it. The Mic strip has FX for the mic filters.">
+            <img src="images/mixer.png?v=240c0596" width="1280" height="800"
+                 alt="The installed Rostrum mixer, with Include in Twitch VOD checked on Game and unchecked on Music. Headphones and Stream masters are above the six bus strips.">
           </button>
         </figure>
       </div>
@@ -217,6 +217,14 @@
             <figcaption>Readiness separates verified controls and routing from OBS capture that has not been verified.</figcaption>
           </figure>
           <figure class="shot">
+            <button class="zoom" type="button" popovertarget="view-settings">
+              <span class="visually-hidden">Enlarge screenshot:</span>
+              <img src="images/settings.png" width="1280" height="800"
+                   alt="The installed Rostrum Settings page, with Integrations selected and OpenDeck showing that the plugin matches this release and instructions to restart OpenDeck.">
+            </button>
+            <figcaption>OpenDeck setup is in Settings → Integrations. Restart OpenDeck after installing the plugin.</figcaption>
+          </figure>
+          <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-micfilters">
               <span class="visually-hidden">Enlarge screenshot:</span>
               <img src="images/micfilters.png" width="1280" height="720"
@@ -276,6 +284,21 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
           A single Rostrum bus is not the Stream Mix. Run Check stream readiness, review OBS track
           assignments and make a short recording; readiness cannot verify audience sound.
           Readiness stays Needs attention until track 2 is selected and Rostrum VOD Mix is captured.
+          Desktop Audio stays off track 2; it would put Music back into the saved VOD.
+        </p>
+        <p>
+          In Settings → General → Startup, Launch at login writes an absolute Exec: the quoted
+          AppImage path or the full home path to <code>~/.local/bin/rostrum</code>, followed by
+          <code>--autostart</code>. It does not depend on Rostrum being on the login session’s PATH.
+          A bus cannot be named VOD; that name is reserved for the VOD master.
+        </p>
+        <h4>OpenDeck</h4>
+        <p>
+          Install and open OpenDeck once, then use Rostrum’s Settings → Integrations → OpenDeck →
+          Install to install the bundled plugin. Restart OpenDeck and drag an action onto a key:
+          Toggle mic, Panic mute, Switch scene, or Toggle bus mute. Python 3 is required.
+          OpenDeck owns the deck; Rostrum does not open it. For manual copy instructions, see the
+          <a href="https://github.com/rostrum-audio/rostrum/tree/codex/twitch-vod-mix#opendeck">OpenDeck setup guide</a>.
         </p>
         <section id="vod" aria-labelledby="vod-title">
           <h4 id="vod-title">Include in Twitch VOD</h4>
@@ -378,7 +401,7 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
     <div class="lightbox" id="view-mixer" popover>
       <button type="button" popovertarget="view-mixer" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/mixer.png" width="1280" height="720" alt="">
+        <img src="images/mixer.png?v=240c0596" width="1280" height="800" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
@@ -400,6 +423,13 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
       <button type="button" popovertarget="view-obs" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
         <img src="images/obs.png?v=59045706" width="1280" height="900" alt="">
+        <span class="lightbox-close" aria-hidden="true">✕</span>
+      </button>
+    </div>
+    <div class="lightbox" id="view-settings" popover>
+      <button type="button" popovertarget="view-settings" popovertargetaction="hide">
+        <span class="visually-hidden">Close the enlarged screenshot</span>
+        <img src="images/settings.png" width="1280" height="800" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
