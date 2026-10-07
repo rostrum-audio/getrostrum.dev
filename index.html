@@ -67,8 +67,8 @@
         <figure class="shot hero-shot">
           <button class="zoom" type="button" popovertarget="view-mixer">
             <span class="visually-hidden">Enlarge screenshot:</span>
-            <img src="images/mixer.png" width="1280" height="720"
-                 alt="The Rostrum mixer: Headphones and Stream masters at the top, then Mic, Game, Voice, Music, Alerts and Desktop buses, each with a fader, mute, solo, a destination and the apps playing on it. The Mic strip has FX for the mic filters.">
+            <img src="images/mixer.png?v=240c0596" width="1280" height="800"
+                 alt="The installed Rostrum mixer, with Include in Twitch VOD checked on Game and unchecked on Music. Headphones and Stream masters are above the six bus strips.">
           </button>
         </figure>
       </div>
@@ -215,6 +215,14 @@
                    alt="Stream readiness results showing verified controls and routing, with OBS capture marked Not verified in an isolated demo.">
             </button>
             <figcaption>Readiness separates verified controls and routing from OBS capture that has not been verified.</figcaption>
+          </figure>
+          <figure class="shot">
+            <button class="zoom" type="button" popovertarget="view-settings">
+              <span class="visually-hidden">Enlarge screenshot:</span>
+              <img src="images/settings.png" width="1280" height="800"
+                   alt="The installed Rostrum Settings page, with Integrations selected and OpenDeck showing that the plugin matches this release and instructions to restart OpenDeck.">
+            </button>
+            <figcaption>OpenDeck setup is in Settings → Integrations. Restart OpenDeck after installing the plugin.</figcaption>
           </figure>
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-micfilters">
@@ -393,7 +401,7 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
     <div class="lightbox" id="view-mixer" popover>
       <button type="button" popovertarget="view-mixer" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/mixer.png" width="1280" height="720" alt="">
+        <img src="images/mixer.png?v=240c0596" width="1280" height="800" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
@@ -415,6 +423,13 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
       <button type="button" popovertarget="view-obs" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
         <img src="images/obs.png?v=59045706" width="1280" height="900" alt="">
+        <span class="lightbox-close" aria-hidden="true">✕</span>
+      </button>
+    </div>
+    <div class="lightbox" id="view-settings" popover>
+      <button type="button" popovertarget="view-settings" popovertargetaction="hide">
+        <span class="visually-hidden">Close the enlarged screenshot</span>
+        <img src="images/settings.png" width="1280" height="800" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
