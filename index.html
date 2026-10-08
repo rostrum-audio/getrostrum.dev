@@ -211,10 +211,10 @@
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-obs">
               <span class="visually-hidden">Enlarge screenshot:</span>
-              <img src="images/obs.png?v=300708e9" width="1280" height="800"
-                   alt="The installed Rostrum OBS page connected to OBS 32.2.2, showing the read-only stream readiness results.">
+              <img src="images/obs.png?v=6a8f8c6b" width="2560" height="1384"
+                   alt="The installed Rostrum OBS page showing Recording tracks: track 3 Rostrum Filtered Mic, track 4 Music, track 5 Voice and track 6 Desktop.">
             </button>
-            <figcaption>Readiness shows which checks passed and which could not be verified. Recording and audience audio still need a short recording check.</figcaption>
+            <figcaption>Recording tracks has a separate preview and Undo. This installed app shows filtered Mic on track 3, Music on 4, Voice on 5 and Desktop on 6. Matching assignments do not verify recording contents or sound.</figcaption>
           </figure>
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-settings">
@@ -280,11 +280,30 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
         </p>
         <p>
           Use one capture per output. Disable or mute duplicate desktop, headphone/default-monitor,
-          raw-mic and app captures: they can double audio or bypass Headphones Only exclusions.
+          raw-mic and unassigned app captures: they can double audio or bypass Headphones Only exclusions.
+          Keep the intended captures assigned through Recording tracks.
           A single Rostrum bus is not the Stream Mix. Run Check stream readiness, review OBS track
           assignments and make a short recording; readiness cannot verify audience sound.
           Readiness stays Needs attention until track 2 is selected and Rostrum VOD Mix is captured.
           Desktop Audio stays off track 2; it would put Music back into the saved VOD.
+        </p>
+        <h4>Recording tracks</h4>
+        <p>
+          Recording tracks on the OBS page has its own preview, backup and Undo, separate from
+          Set Up OBS. Track 1 is the Stream Mix, track 2 is the VOD Mix, and tracks 3–6 capture
+          the chosen buses. Occupied tracks default to Keep OBS assignments; empty tracks suggest
+          3 Mic, 4 Game, 5 Voice and 6 Music. Review the changes before applying with streaming
+          and recording stopped.
+        </p>
+        <p>
+          Playback captures use <code>rostrum.&lt;bus&gt;.monitor</code>, including Headphones-only
+          buses without changing their stream destination. The mic recording track uses
+          <code>rostrum.mic</code> with filters off and <code>rostrum.filtered</code> with filters
+          on. After changing filters, review and apply again; reconnect checks assignments
+          without overwriting OBS edits. Mic mute silences the mic capture. A bus mute silences
+          that bus capture. Panic mute and master stream mute silence the Stream Mix and VOD Mix,
+          without silencing isolated playback bus captures. Matching tracks does not prove
+          that the recording sounds right.
         </p>
         <p>
           In Settings → General → Startup, Launch at login writes an absolute Exec: the quoted
@@ -300,6 +319,7 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
           OpenDeck owns the deck; Rostrum does not open it. For manual copy instructions, see the
           <a href="https://github.com/rostrum-audio/rostrum/tree/codex/twitch-vod-mix#opendeck">OpenDeck setup guide</a>.
         </p>
+        <p>OpenDeck mic cues provide optional headphone feedback, with per-key sound volume.</p>
         <section id="vod" aria-labelledby="vod-title">
           <h4 id="vod-title">Include in Twitch VOD</h4>
           <p>
@@ -422,7 +442,7 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
     <div class="lightbox" id="view-obs" popover>
       <button type="button" popovertarget="view-obs" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/obs.png?v=300708e9" width="1280" height="800" alt="">
+        <img src="images/obs.png?v=6a8f8c6b" width="2560" height="1384" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
