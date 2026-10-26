@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rostrum">
   <meta property="og:title" content="Rostrum: a stream mix console for Linux">
-  <meta property="og:description" content="A stream mix console for Linux, not a patchbay. Buses, two mixes, scenes and OBS in one click, on PipeWire.">
+  <meta property="og:description" content="Mix Linux audio for headphones, live streams and Twitch VODs, with separate OBS recording tracks.">
   <meta property="og:url" content="https://getrostrum.dev/">
   <meta property="og:image" content="https://getrostrum.dev/images/social-preview.png">
   <meta property="og:image:width" content="1280">
@@ -54,21 +54,21 @@
         </h1>
         <p class="tagline">A stream mix console for Linux, not a patchbay.</p>
         <p class="lede">
-          Split your game, voice chat, mic, music, alerts and desktop audio into named buses. Send
-          each one to your headphones, to the stream, or to both. OBS captures Rostrum Stream Mix
-          and Rostrum Mic separately.
+          Mix game, voice chat, mic, music, alerts and desktop audio in one window. Choose what
+          reaches headphones, the live stream and the Twitch VOD. Record individual buses on
+          separate OBS tracks when you need their audio on its own.
         </p>
         <div class="actions">
-          <a class="button button-primary" href="https://github.com/rostrum-audio/rostrum/releases/download/v0.1.0/Rostrum-0.1.0-x86_64.AppImage">Download 0.1.0 AppImage</a>
-          <a class="button button-secondary" href="https://github.com/rostrum-audio/rostrum/releases/tag/v0.1.0">Release notes</a>
+          <a class="button button-primary" href="https://github.com/rostrum-audio/rostrum/releases/download/v0.2.0/Rostrum-0.2.0-x86_64.AppImage">Download 0.2.0 AppImage</a>
+          <a class="button button-secondary" href="https://github.com/rostrum-audio/rostrum/releases/tag/v0.2.0">Release notes</a>
         </div>
-        <p class="hero-note">Free and open source (Apache-2.0). 0.1.0 is available for x86_64. Validated on Ubuntu 26.04; glibc 2.43+ required. <a href="#install">Requirements and launch</a>.</p>
+        <p class="hero-note">Free and open source (Apache-2.0). 0.2.0 is available for x86_64. Validated on Ubuntu 26.04; glibc 2.43+ required. <a href="#install">Requirements and launch</a>.</p>
 
         <figure class="shot hero-shot">
           <button class="zoom" type="button" popovertarget="view-mixer">
             <span class="visually-hidden">Enlarge screenshot:</span>
-            <img src="images/mixer.png?v=617f8013" width="1280" height="800"
-                 alt="The installed Rostrum mixer, with Include in Twitch VOD checked on Game and unchecked on Music. Headphones and Stream masters are above the six bus strips.">
+            <img src="images/mixer.png?v=28e6f422" width="1360" height="960"
+                 alt="The Rostrum 0.2.0 mixer in a demo session, with Include in Twitch VOD checked on Game and unchecked on Music. Headphones and Stream masters are above the six bus strips.">
           </button>
         </figure>
       </div>
@@ -77,12 +77,11 @@
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="wrap">
         <div class="meters" aria-hidden="true"><span></span><span></span><span></span></div>
-        <h2 id="about-title">A mixing desk, not a graph</h2>
+        <h2 id="about-title">Control your mixes</h2>
         <div class="narrow">
           <p>
-            Tools like qpwgraph and Helvum show every port and every link. Rostrum hides the graph
-            and gives you a mixing desk instead: faders, meters, mute and solo, and scenes you can
-            switch live.
+            Adjust buses with faders, meters, mute and solo. Save a mix as a scene and switch
+            scenes while you stream. Rostrum manages the PipeWire routing behind those controls.
           </p>
           <p>
             Rostrum uses PipeWire and WirePlumber. Its AppImage was validated on Ubuntu 26.04 x86_64,
@@ -92,12 +91,12 @@
         </div>
         <div class="compare">
           <div>
-            <h3>Buses, not wires</h3>
+            <h3>A bus for each source</h3>
             <p>Each source gets a named bus with a fader and a meter. No ports to connect by hand.</p>
           </div>
           <div>
-            <h3>Two mixes from one console</h3>
-            <p>What you hear and what your audience hears, set per bus: Headphones, Stream or Both.</p>
+            <h3>Headphones, live stream and VOD</h3>
+            <p>Set headphone and stream destinations per bus, then choose which buses stay in the Twitch VOD.</p>
           </div>
         </div>
       </div>
@@ -106,7 +105,7 @@
     <section class="section section-alt" id="features" aria-labelledby="features-title">
       <div class="wrap">
         <h2 id="features-title">Features</h2>
-        <p class="section-intro">Everything below is in version 0.1.0.</p>
+        <p class="section-intro">Included in Rostrum 0.2.0.</p>
         <ul class="features">
           <li>
             <h3>Six buses to start</h3>
@@ -117,7 +116,19 @@
             <p>Send each bus to your headphones, the stream, or both. Headphones Only removes Stream Mix sends; Stream Only removes headphone sends. Independent OBS captures can bypass these exclusions.</p>
           </li>
           <li>
-            <h3>Your mic, protected</h3>
+            <h3>Twitch VOD mix</h3>
+            <p>Keep music out of the saved VOD while it stays in the live stream. Each playback bus has an Include in Twitch VOD choice; Music is excluded by default.</p>
+          </li>
+          <li>
+            <h3>Separate OBS recording tracks</h3>
+            <p>Assign buses to tracks 3–6, review the proposed changes and undo them separately from stream setup. Tracks 1 and 2 keep the live and VOD mixes.</p>
+          </li>
+          <li>
+            <h3>OpenDeck controls</h3>
+            <p>Toggle the mic, mute a bus, switch scenes or use panic mute from a deck. Optional mic cues play in headphones. Install the bundled plugin from Settings → Integrations.</p>
+          </li>
+          <li>
+            <h3>Saved microphone and fallback</h3>
             <p>The mic has its own bus with optional sidetone. If a saved mic disappears, the stream mic stays silent until it returns. No other mic replaces it unless you explicitly enable fallback.</p>
           </li>
           <li>
@@ -195,7 +206,7 @@
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-wizard">
               <span class="visually-hidden">Enlarge screenshot:</span>
-              <img src="images/wizard.png?v=d7d89a24" width="1280" height="800"
+              <img src="images/wizard.png?v=212a9b2b" width="1360" height="960"
                    alt="First-time setup: a list of steps on the left, and a diagram of apps going to buses and buses going to your headphones and to OBS.">
             </button>
             <figcaption>First-time setup walks through headphones, mic, apps, startup, updates and OBS.</figcaption>
@@ -203,7 +214,7 @@
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-apps">
               <span class="visually-hidden">Enlarge screenshot:</span>
-              <img src="images/apps.png?v=22e749ac" width="1280" height="800"
+              <img src="images/apps.png?v=7460e43a" width="1360" height="960"
                    alt="The Apps page: the apps playing now, the bus each is on and why, and the saved rules.">
             </button>
             <figcaption>The Apps page shows what is playing, where it went and why.</figcaption>
@@ -211,23 +222,23 @@
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-obs">
               <span class="visually-hidden">Enlarge screenshot:</span>
-              <img src="images/obs.png?v=6a8f8c6b" width="2560" height="1384"
-                   alt="The installed Rostrum OBS page showing Recording tracks: track 3 Rostrum Filtered Mic, track 4 Music, track 5 Voice and track 6 Desktop.">
+              <img src="images/obs.png?v=27708818" width="1360" height="1500"
+                   alt="Rostrum 0.2.0 OBS setup and separate recording-track controls in a private demo session.">
             </button>
-            <figcaption>Recording tracks has a separate preview and Undo. This installed app shows filtered Mic on track 3, Music on 4, Voice on 5 and Desktop on 6. Matching assignments do not verify recording contents or sound. Readiness shows which checks passed and which could not be verified.</figcaption>
+            <figcaption>Tracks 3–6 capture Mic, Game, Voice and Music in this demo. Recording changes have their own Review and Undo; matching assignments do not verify recorded sound.</figcaption>
           </figure>
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-settings">
               <span class="visually-hidden">Enlarge screenshot:</span>
-              <img src="images/settings.png?v=0bc5c05b" width="1280" height="800"
-                   alt="The installed Rostrum Settings page, with Integrations selected and OpenDeck showing that the plugin matches this release and instructions to restart OpenDeck.">
+              <img src="images/settings.png?v=8b59f19e" width="1360" height="960"
+                   alt="Rostrum 0.2.0 Settings, with separate tabs for General, Audio, Hotkeys, Integrations and Application preferences.">
             </button>
-            <figcaption>OpenDeck setup is in Settings → Integrations. Restart OpenDeck after installing the plugin.</figcaption>
+            <figcaption>Settings groups startup, audio, hotkeys, integrations and application preferences. OpenDeck setup is under Integrations.</figcaption>
           </figure>
           <figure class="shot">
             <button class="zoom" type="button" popovertarget="view-micfilters">
               <span class="visually-hidden">Enlarge screenshot:</span>
-              <img src="images/micfilters.png?v=e11eab71" width="1280" height="800"
+              <img src="images/micfilters.png?v=e2500f77" width="1360" height="960"
                    alt="The Mic Filters page: a switch to clean up the mic, a preset, which apps get the filtered mic, then Check Your Mic and the rumble filter.">
             </button>
             <figcaption>Mic Filters processes locally; Check Mic plays back the Rostrum Mic signal before OBS.</figcaption>
@@ -242,16 +253,16 @@
         <div class="narrow">
         <h3>Download the x86_64 AppImage</h3>
         <p>
-          <a href="https://github.com/rostrum-audio/rostrum/releases/download/v0.1.0/Rostrum-0.1.0-x86_64.AppImage">Rostrum 0.1.0 AppImage</a> ·
-          <a href="https://github.com/rostrum-audio/rostrum/releases/download/v0.1.0/SHA256SUMS">SHA256SUMS</a> ·
-          <a href="https://github.com/rostrum-audio/rostrum/releases/tag/v0.1.0">Release notes</a>.
+          <a href="https://github.com/rostrum-audio/rostrum/releases/download/v0.2.0/Rostrum-0.2.0-x86_64.AppImage">Rostrum 0.2.0 AppImage</a> ·
+          <a href="https://github.com/rostrum-audio/rostrum/releases/download/v0.2.0/SHA256SUMS">SHA256SUMS</a> ·
+          <a href="https://github.com/rostrum-audio/rostrum/releases/tag/v0.2.0">Release notes</a>.
           Save the AppImage and checksum file in the same folder, then run:
         </p>
 <pre><code>sha256sum -c SHA256SUMS
-chmod +x Rostrum-0.1.0-x86_64.AppImage
-./Rostrum-0.1.0-x86_64.AppImage
+chmod +x Rostrum-0.2.0-x86_64.AppImage
+./Rostrum-0.2.0-x86_64.AppImage
 # If FUSE is unavailable:
-./Rostrum-0.1.0-x86_64.AppImage --appimage-extract-and-run</code></pre>
+./Rostrum-0.2.0-x86_64.AppImage --appimage-extract-and-run</code></pre>
         <p>
           Fully quit an existing Rostrum through its tray/menu Quit first; closing the window can
           leave it running. Builds share settings and a second launch can activate the old copy.
@@ -265,7 +276,7 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
           for every newer distribution. Older glibc and other architectures are unsupported by
           this artifact. A working audio session, desktop D-Bus, X11 or Wayland, graphics/font
           libraries and FUSE for mounted launch are required. See the
-          <a href="https://github.com/rostrum-audio/rostrum/blob/v0.1.0/docs/releasing.md#what-gets-published">host runtime packages</a>.
+          <a href="https://github.com/rostrum-audio/rostrum/blob/v0.2.0/docs/releasing.md#what-gets-published">host runtime packages</a>.
         </p>
         <h3>Connect OBS</h3>
         <p>
@@ -289,8 +300,8 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
         </p>
         <h4>Recording tracks</h4>
         <p>
-          Recording tracks on the OBS page has its own preview, backup and Undo, separate from
-          Set Up OBS. Track 1 is the Stream Mix, track 2 is the VOD Mix, and tracks 3–6 capture
+          Select Advanced output mode and Standard recording in OBS first. Recording tracks
+          on Rostrum's OBS page has its own preview, backup and Undo, separate from Set Up OBS. Track 1 is the Stream Mix, track 2 is the VOD Mix, and tracks 3–6 capture
           the chosen buses. Occupied tracks default to Keep OBS assignments; empty tracks suggest
           3 Mic, 4 Game, 5 Voice and 6 Music. Review the changes before applying with streaming
           and recording stopped.
@@ -306,10 +317,8 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
           that the recording sounds right.
         </p>
         <p>
-          In Settings → General → Startup, Launch at login writes an absolute Exec: the quoted
-          AppImage path or the full home path to <code>~/.local/bin/rostrum</code>, followed by
-          <code>--autostart</code>. It does not depend on Rostrum being on the login session’s PATH.
-          A bus cannot be named VOD; that name is reserved for the VOD master.
+          Enable Launch at login in Settings → General → Startup. You can also choose whether
+          Rostrum starts hidden in the tray.
         </p>
         <h4>OpenDeck</h4>
         <p>
@@ -317,7 +326,7 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
           Install to install the bundled plugin. Restart OpenDeck and drag an action onto a key:
           Toggle mic, Panic mute, Switch scene, or Toggle bus mute. Python 3 is required.
           OpenDeck owns the deck; Rostrum does not open it. For manual copy instructions, see the
-          <a href="https://github.com/rostrum-audio/rostrum/tree/codex/twitch-vod-mix#opendeck">OpenDeck setup guide</a>.
+          <a href="https://github.com/rostrum-audio/rostrum/tree/v0.2.0#opendeck">OpenDeck setup guide</a>.
         </p>
         <p>OpenDeck mic cues provide optional headphone feedback, with per-key sound volume.</p>
         <section id="vod" aria-labelledby="vod-title">
@@ -390,7 +399,7 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
 
     <section class="section" id="privacy" aria-labelledby="privacy-title">
       <div class="wrap">
-        <h2 id="privacy-title">Private by default</h2>
+        <h2 id="privacy-title">Privacy and network access</h2>
         <p class="section-intro">
           Rostrum has no telemetry or accounts and does not upload your audio. Mic filters and the
           mic check run locally without saving recordings. Optional update checks and AppImage downloads
@@ -399,7 +408,7 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
         <ul class="privacy-list">
           <li>
             <strong>Optional checks and downloads</strong>
-            <span>Update checks contact getrostrum.dev and GitHub without cookies or a user ID. AppImages can automatically download and install checksum-verified updates, or wait for you to choose Install. Checks and automatic installation have separate switches in Settings → Updates.</span>
+            <span>Update checks contact getrostrum.dev and GitHub without cookies or a user ID. AppImages can automatically download and install checksum-verified updates, or wait for you to choose Install. Checks and automatic installation have separate switches in Settings → Application → Updates.</span>
           </li>
           <li>
             <strong>Crash reports are your call</strong>
@@ -407,7 +416,7 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
           </li>
           <li>
             <strong>OBS stays on your computer</strong>
-            <span>Rostrum reads OBS status and capture settings over localhost. Set Up OBS and Undo apply only when you choose them. Background following can be disabled in Settings → OBS.</span>
+            <span>Rostrum reads OBS status and capture settings over localhost. Stream setup and recording-track changes apply only when you choose them. Background following can be disabled in Settings → Integrations → OBS.</span>
           </li>
           <li>
             <strong>No network listener</strong>
@@ -421,42 +430,42 @@ chmod +x Rostrum-0.1.0-x86_64.AppImage
     <div class="lightbox" id="view-mixer" popover>
       <button type="button" popovertarget="view-mixer" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/mixer.png?v=617f8013" width="1280" height="800" alt="">
+        <img src="images/mixer.png?v=28e6f422" width="1360" height="960" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
     <div class="lightbox" id="view-wizard" popover>
       <button type="button" popovertarget="view-wizard" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/wizard.png?v=d7d89a24" width="1280" height="800" alt="">
+        <img src="images/wizard.png?v=212a9b2b" width="1360" height="960" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
     <div class="lightbox" id="view-apps" popover>
       <button type="button" popovertarget="view-apps" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/apps.png?v=22e749ac" width="1280" height="800" alt="">
+        <img src="images/apps.png?v=7460e43a" width="1360" height="960" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
     <div class="lightbox" id="view-obs" popover>
       <button type="button" popovertarget="view-obs" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/obs.png?v=6a8f8c6b" width="2560" height="1384" alt="">
+        <img src="images/obs.png?v=27708818" width="1360" height="1500" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
     <div class="lightbox" id="view-settings" popover>
       <button type="button" popovertarget="view-settings" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/settings.png?v=0bc5c05b" width="1280" height="800" alt="">
+        <img src="images/settings.png?v=8b59f19e" width="1360" height="960" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
     <div class="lightbox" id="view-micfilters" popover>
       <button type="button" popovertarget="view-micfilters" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/micfilters.png?v=e11eab71" width="1280" height="800" alt="">
+        <img src="images/micfilters.png?v=e2500f77" width="1360" height="960" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
