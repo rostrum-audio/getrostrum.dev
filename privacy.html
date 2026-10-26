@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy: Rostrum</title>
-  <meta name="description" content="What Rostrum sends over the network, when, and how to turn it off. And what this website collects: nothing.">
+  <meta name="description" content="Rostrum's optional network features and privacy choices, plus Cloudflare's request processing and network-error reporting for this website.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#14151c" media="(prefers-color-scheme: dark)">
@@ -40,7 +40,7 @@
         Rostrum has no telemetry, accounts or usage tracking. Optional update checks contact
         getrostrum.dev and GitHub; AppImage updates can also download a replacement executable.
         Optional crash reports go to Sentry. These choices are offered during first-time setup
-        and can be changed in Settings → Updates and Settings → Privacy. Communication with OBS
+        and can be changed in Settings → Application → Updates and Settings → Application → Privacy. Communication with OBS
         is separate and stays on your computer over localhost.
       </p>
       <p>
@@ -64,7 +64,7 @@
         <li>The request carries Rostrum's version in its User-Agent and nothing else about you: no cookies, no ID. Like any request, the servers see the IP address it comes from.</li>
         <li>What happens next depends on how Rostrum was installed. The AppImage can download and replace itself after verifying the release checksum. A build from source shows a banner that links to what changed; rebuild it manually. Package installs are left to the package manager, and Flatpak installs do not check at all.</li>
         <li>AppImage automatic installation is on by default when updates are enabled. Turn off automatic installation to wait for the Install action; turn off update checks to disable scheduled checks. Downloads come from GitHub and use the same no-cookie policy. Servers see the request’s IP address.</li>
-        <li>Use Settings → Updates to change these separate choices. Check Now also makes a request when you choose it.</li>
+        <li>Use Settings → Application → Updates to change these separate choices. Check Now also makes a request when you choose it.</li>
       </ul>
 
       <h2>Crash reports</h2>
@@ -79,22 +79,34 @@
       <h2>OBS</h2>
       <ul>
         <li>Rostrum talks to OBS through obs-websocket on <code>127.0.0.1</code> only. That traffic never leaves your computer.</li>
-        <li>Set Up OBS and Undo change OBS only when you press them.</li>
-        <li>While OBS runs, Rostrum can follow it to show LIVE and REC badges, go-live warnings and scene mapping. It only reads, and stores nothing apart from the scene mapping you choose. Turn background following off in Settings → OBS to connect only while the OBS page is open. Readiness also reads capture configuration; it does not change settings or test audience audio.</li>
+        <li>Stream setup and recording-track changes are applied only when you choose them. Recording tracks has its own Review, Apply and Undo controls.</li>
+        <li>While OBS runs, Rostrum can follow it to show LIVE and REC badges, go-live warnings and scene mapping. Background following reads OBS status and capture settings. Rostrum saves your scene mappings, recording-track assignments and local backups and Undo records on your computer. Turn background following off in Settings → Integrations → OBS to connect only while the OBS page is open. Readiness also reads capture configuration; it does not change settings or test audience audio.</li>
       </ul>
 
       <h2>No network listener</h2>
       <p>
-        Rostrum opens no network ports. The <code>rostrum</code> command and the D-Bus interface on
+        Rostrum accepts no incoming network connections. The <code>rostrum</code> command and the D-Bus interface on
         your session bus are the only ways to control it from outside the window.
       </p>
 
       <h2>This website</h2>
       <p>
-        getrostrum.dev is a set of static files hosted on Cloudflare Pages. It sets no cookies, runs
-        no JavaScript, and has no analytics or trackers. Fonts, styles and images all come from this
-        site; nothing is loaded from other servers. Cloudflare handles the requests to serve the
-        pages.
+        getrostrum.dev is a set of static files hosted on Cloudflare Pages. The authored pages have
+        no JavaScript or tracking code and set no application cookies. Fonts, styles and images
+        are self-hosted. Cloudflare processes request information to serve and protect the site
+        and provides operational request statistics.
+      </p>
+      <p>
+        Cloudflare adds a Web Analytics script tag to custom-domain pages. Browser checks showed
+        that the site's Content Security Policy blocked the script. Delivered HTML can contain
+        this tag even though the site's source files contain no JavaScript.
+      </p>
+      <p>
+        Cloudflare also sends
+        <a href="https://developers.cloudflare.com/network-error-logging/">Network Error Logging</a>
+        headers. Supporting browsers can report failed requests without JavaScript. The headers
+        checked on October 26, 2026 disabled successful-request reporting. Blocking the analytics
+        script does not disable NEL or Cloudflare's processing of website requests.
       </p>
 
       <h2>Questions</h2>
