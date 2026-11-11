@@ -97,16 +97,16 @@
         and provides operational request statistics.
       </p>
       <p>
-        Cloudflare adds a Web Analytics script tag to custom-domain pages. Browser checks showed
-        that the site's Content Security Policy blocked the script. Delivered HTML can contain
-        this tag even though the site's source files contain no JavaScript.
+        Cloudflare Web Analytics injection for this zone is turned off (November 11, 2026).
+        Earlier, custom-domain pages received an injected analytics script tag that the site's
+        Content Security Policy blocked. The authored source files still contain no JavaScript.
       </p>
       <p>
         Cloudflare also sends
         <a href="https://developers.cloudflare.com/network-error-logging/">Network Error Logging</a>
         headers. Supporting browsers can report failed requests without JavaScript. The headers
-        checked on October 26, 2026 disabled successful-request reporting. Blocking the analytics
-        script does not disable NEL or Cloudflare's processing of website requests.
+        checked on October 26, 2026 disabled successful-request reporting. Turning off Web
+        Analytics does not disable NEL or Cloudflare's processing of website requests.
       </p>
 
       <h2>Questions</h2>

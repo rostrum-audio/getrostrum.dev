@@ -3,10 +3,9 @@
 The website for [Rostrum](https://github.com/rostrum-audio/rostrum), a stream mix console for
 Linux. It is plain hand-written HTML and one stylesheet: no framework, no build step, no
 authored JavaScript or tracking code, with self-hosted styles and images. Cloudflare
-processes serving/security requests and operational statistics; deployed responses
-also advertise Network Error Logging. The custom domains currently receive an injected
-Web Analytics script tag, which the strict CSP blocks. The Pages origin had no script
-tag during browser inspection. See [privacy.html](privacy.html) for these distinctions.
+processes serving/security requests; deployed responses also advertise Network Error
+Logging. Web Analytics (RUM) injection is turned off for this zone (2026-11-11). See
+[privacy.html](privacy.html) for these distinctions.
 
 Bugs and feature requests for the app go to the
 [app repository](https://github.com/rostrum-audio/rostrum/issues).
@@ -38,11 +37,10 @@ Every push to `main` deploys. Other branches get preview deployments.
 
 Custom domains: `getrostrum.dev` and `www.getrostrum.dev`.
 
-Web Analytics injection is a hosting setting, not authored site code. Do not weaken
-CSP to let the beacon run. Changing that setting requires separate authorization;
-disabling it would not itself disable Network Error Logging or request processing.
-Verify delivered HTML and browser requests on both custom domains after hosting
-changes: source inspection or a generic curl response alone can miss injection.
+Web Analytics injection is a hosting setting, not authored site code. It is currently
+disabled for getrostrum.dev (zone RUM off, site auto_install off). Do not weaken CSP.
+Disabling Web Analytics does not itself disable Network Error Logging or request
+processing. Re-check delivered HTML on both custom domains after hosting changes.
 
 ## The updater feed redirect
 
