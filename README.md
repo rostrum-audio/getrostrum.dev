@@ -53,7 +53,7 @@ so the first line of `_redirects` sends that path to the newest one:
 ```
 
 Keep that line first and keep the path unchanged: released versions of the app have the URL built
-in. Rostrum 0.2.0 is published; the redirect reaches a feed whose AppImage hash
+in. Rostrum 0.3.0 is published; the redirect reaches a feed whose AppImage hash
 and size match the public download. Do not change
 this redirect to point at a local fixture or manually edit the public feed.
 
@@ -82,10 +82,11 @@ source-build minimums separate from the tested AppImage environment. OBS capture
 Stream Mix, VOD Mix and Rostrum Mic separately. Recording tracks 3–6 are optional;
 readiness and matching assignments do not verify recorded sound.
 
-The six app screenshots use the published 0.2.0 AppImage in a disposable container
-with private PipeWire, WirePlumber, PulseAudio compatibility, D-Bus and Xvfb. Devices
-and app names are demo fixtures. The OBS page shows an actual isolated OBS instance;
-no recording or stream was started. Never capture the user’s live session. Replace
+The six app screenshots are 0.3.0 captures from the release commit's source build, taken
+with the app repository's isolated screenshot harness (`tools/ci/apps-screenshot.py --docs`):
+private PipeWire, WirePlumber and D-Bus, offscreen. Devices and app names are demo fixtures.
+OBS is closed in the OBS page shot, so recording tracks show as unavailable. Never capture the
+user’s live session. Replace
 the image URL’s `?v=` value with the new image’s SHA-256 prefix when updating a
 screenshot, and update its dimensions, alt text and caption. Preserve CSP and static assets.
 Keep everything self-hosted: the
