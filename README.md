@@ -53,7 +53,7 @@ so the first line of `_redirects` sends that path to the newest one:
 ```
 
 Keep that line first and keep the path unchanged: released versions of the app have the URL built
-in. Rostrum 0.3.0 is published; the redirect reaches a feed whose AppImage hash
+in. Rostrum 0.4.0 is published; the redirect reaches a feed whose AppImage hash
 and size match the public download. Do not change
 this redirect to point at a local fixture or manually edit the public feed.
 
