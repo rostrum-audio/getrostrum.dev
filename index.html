@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rostrum: a stream mix console for Linux</title>
-  <meta name="description" content="Rostrum splits your game, voice chat, mic, music, alerts and desktop audio into buses, each sent to your headphones, your stream, or both, with optional mic noise removal. Free and open source, for Linux with PipeWire.">
+  <meta name="description" content="Rostrum splits your game, voice chat, mic, music, alerts and desktop audio into buses, each with Headphones and Stream levels, sent to your headphones, your stream, or both, with optional mic noise removal. Free and open source, for Linux with PipeWire.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#14151c" media="(prefers-color-scheme: dark)">
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rostrum">
   <meta property="og:title" content="Rostrum: a stream mix console for Linux">
-  <meta property="og:description" content="Mix Linux audio for headphones, live streams and Twitch VODs, with separate OBS recording tracks.">
+  <meta property="og:description" content="Mix Linux audio with Headphones and Stream levels per bus, for live streams and Twitch VODs, with separate OBS recording tracks.">
   <meta property="og:url" content="https://getrostrum.dev/">
   <meta property="og:image" content="https://getrostrum.dev/images/social-preview.png">
   <meta property="og:image:width" content="1280">
@@ -54,9 +54,9 @@
         </h1>
         <p class="tagline">A stream mix console for Linux, not a patchbay.</p>
         <p class="lede">
-          Mix game, voice chat, mic, music, alerts and desktop audio in one window. Choose what
-          reaches headphones, the live stream and the Twitch VOD. Record individual buses on
-          separate OBS tracks when you need their audio on its own.
+          Mix game, voice chat, mic, music, alerts and desktop audio in one window. Set a Headphones
+          level and a Stream level on each playback bus, choose what reaches the Twitch VOD, and
+          record individual buses on separate OBS tracks when you need their audio on its own.
         </p>
         <div class="actions">
           <a class="button button-primary" href="https://github.com/rostrum-audio/rostrum/releases/download/v0.3.0/Rostrum-0.3.0-x86_64.AppImage">Download 0.3.0 AppImage</a>
@@ -67,8 +67,8 @@
         <figure class="shot hero-shot">
           <button class="zoom" type="button" popovertarget="view-mixer">
             <span class="visually-hidden">Enlarge screenshot:</span>
-            <img src="images/mixer.png?v=eb919142" width="1360" height="960"
-                 alt="The Rostrum 0.3.0 mixer in a demo session, with Include in Twitch VOD checked on Game and unchecked on Music. Headphones and Stream masters are above the Mic strip and five bus strips.">
+            <img src="images/mixer.png?v=f54cd353" width="1360" height="960"
+                 alt="The Rostrum mixer in a demo session: Headphones and Stream masters above the Mic strip and five playback strips, each with linked Headphones and Stream faders. Include in Twitch VOD is checked on Game and unchecked on Music.">
           </button>
         </figure>
       </div>
@@ -92,11 +92,11 @@
         <div class="compare">
           <div>
             <h3>A bus for each source</h3>
-            <p>Each source gets a named bus with a fader and a meter. No ports to connect by hand.</p>
+            <p>Each source gets a named bus with meters and levels. Playback buses have Headphones and Stream faders, linked so they move together until you unlink them. No ports to connect by hand.</p>
           </div>
           <div>
             <h3>Headphones, live stream and VOD</h3>
-            <p>Set headphone and stream destinations per bus, then choose which buses stay in the Twitch VOD.</p>
+            <p>Set headphone and stream destinations and levels per bus, then choose which buses stay in the Twitch VOD.</p>
           </div>
         </div>
       </div>
@@ -109,11 +109,11 @@
         <ul class="features">
           <li>
             <h3>Six buses to start</h3>
-            <p>Mic, Game, Voice, Music, Alerts and Desktop, each with a fader and mute. Every playback bus gets solo. Add more, up to twelve.</p>
+            <p>Mic, Game, Voice, Music, Alerts and Desktop, each with mute. Every playback bus gets solo plus a Headphones fader and a Stream fader, linked by default. Add more, up to twelve.</p>
           </li>
           <li>
             <h3>Headphones and Stream mixes</h3>
-            <p>Send each bus to your headphones, the stream, or both. Headphones Only removes Stream Mix sends; Stream Only removes headphone sends. Independent OBS captures can bypass these exclusions.</p>
+            <p>Send each bus to your headphones, the stream, or both, at its own level for each mix. Headphones Only removes Stream Mix sends; Stream Only removes headphone sends. Independent OBS captures can bypass these exclusions.</p>
           </li>
           <li>
             <h3>Twitch VOD mix</h3>
@@ -185,7 +185,7 @@
           </li>
           <li>
             <h3>Compact view</h3>
-            <p>A small mixer with your mic, scene, masters and a slim fader per bus that can stay on top of a game or OBS.</p>
+            <p>A small mixer with your mic, scene, masters and a slim fader per bus (moving both mix levels together) that can stay on top of a game or OBS.</p>
           </li>
           <li>
             <h3>Undo and backups</h3>
@@ -388,10 +388,10 @@ chmod +x Rostrum-0.3.0-x86_64.AppImage
         <h3>Build from source</h3>
         <p>
           <a href="https://github.com/rostrum-audio/rostrum#build-from-source">Source-build instructions</a>
-          cover Ubuntu, Fedora and Arch. Source minimums are PipeWire 1.0+, WirePlumber 0.5+,
-          Qt 6.5+ and KDE Frameworks 6.8+; Studio Voice needs PipeWire 1.4+ audio-convert support.
-          These are not the AppImage’s validated compatibility matrix. Source-build CI passes
-          on Fedora and Arch do not validate this AppImage on those systems.
+          cover Ubuntu, Fedora and Arch. Source minimums are PipeWire 1.4+, WirePlumber 0.5+,
+          Qt 6.5+ and KDE Frameworks 6.8+. These are not the AppImage’s validated compatibility
+          matrix. Source-build CI passes on Fedora and Arch do not validate this AppImage on those
+          systems.
         </p>
         </div>
       </div>
@@ -430,7 +430,7 @@ chmod +x Rostrum-0.3.0-x86_64.AppImage
     <div class="lightbox" id="view-mixer" popover>
       <button type="button" popovertarget="view-mixer" popovertargetaction="hide">
         <span class="visually-hidden">Close the enlarged screenshot</span>
-        <img src="images/mixer.png?v=eb919142" width="1360" height="960" alt="">
+        <img src="images/mixer.png?v=f54cd353" width="1360" height="960" alt="">
         <span class="lightbox-close" aria-hidden="true">✕</span>
       </button>
     </div>
